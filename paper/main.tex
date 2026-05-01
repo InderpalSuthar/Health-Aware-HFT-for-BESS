@@ -4,21 +4,26 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\allowdisplaybreaks
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{algorithm}
-\usepackage{algorithmic}
 \usepackage{hyperref}
 \usepackage{cite}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage{geometry}
-\usepackage{natbib}
 \usepackage{algpseudocode}
-\usepackage{float} % To force figure placement
-
-\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage[margin=0.75in]{geometry}
+\setlength{\columnsep}{0.25in}
+\usepackage{authblk}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{1.2ex plus 1ex minus .2ex}{0.5ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1ex plus 1ex minus .2ex}{0.5ex plus .2ex}
+\usepackage{enumitem}
+\setlist{nosep}
 
 % Hyperlink setup
 \hypersetup{
@@ -30,17 +35,11 @@
 }
 
 % Title and Author Information
-\title{\textbf{Health-Aware High-Frequency Trading for Battery Energy Storage Systems: A Multi-Objective Dynamic Programming Approach}}
+\title{Health-Aware High-Frequency Trading for Battery Storage}
 
-\author{
-Inderpal Suthar \\
-\textit{Indian Institute of Technology Delhi} \\
-Entry No: 2022ME22106 \\
-\texttt{me2222106@iitd.ac.in}
-\and
-Supervisor: Dr. Debaprasad Sahu \\
-\textit{Indian Institute of Technology Delhi}
-}
+\author[a]{Inderpal Suthar}
+\author[a]{Dr. Debaprasad Sahu}
+\affil[a]{\textit{Indian Institute of Technology Delhi}}
 
 \date{}
 
@@ -186,21 +185,21 @@ This ten-fold difference in lifetime energy throughput demonstrates the critical
 
 The rainflow counting algorithm, widely used in materials stress analysis, provides a method to identify and quantify cycles from a time-series SoC profile. Given a SoC profile with local extrema $s_0, s_1, s_2, \ldots$, the algorithm identifies cycles as follows:
 
-    \begin{algorithm}[ht!]
+    \begin{algorithm}[htb]
     \caption{Rainflow Cycle Counting}
     \begin{algorithmic}[1]
     \setlength\itemsep{0pt}
-    \STATE Start from the beginning of the SoC profile
-    \STATE Calculate $\Delta s_1 = |s_0 - s_1|$, $\Delta s_2 = |s_1 - s_2|$, $\Delta s_3 = |s_2 - s_3|$
-    \IF{$\Delta s_2 \leq \Delta s_1$ AND $\Delta s_2 \leq \Delta s_3$}
-    \STATE A full cycle of depth $\Delta s_2$ has been identified
-    \STATE Remove $s_1$ and $s_2$ from profile
-    \STATE Repeat using points $s_0, s_3, s_4, \ldots$
-    \ELSE
-    \STATE Shift forward and repeat using $s_1, s_2, s_3, s_4, \ldots$
-    \ENDIF
-    \STATE Repeat until no more full cycles can be identified
-    \STATE Remaining profile forms the rainflow residue
+    \State Start from the beginning of the SoC profile
+    \State Calculate $\Delta s_1 = |s_0 - s_1|$, $\Delta s_2 = |s_1 - s_2|$, $\Delta s_3 = |s_2 - s_3|$
+    \If{$\Delta s_2 \leq \Delta s_1$ AND $\Delta s_2 \leq \Delta s_3$}
+    \State A full cycle of depth $\Delta s_2$ has been identified
+    \State Remove $s_1$ and $s_2$ from profile
+    \State Repeat using points $s_0, s_3, s_4, \ldots$
+    \Else
+    \State Shift forward and repeat using $s_1, s_2, s_3, s_4, \ldots$
+    \EndIf
+    \State Repeat until no more full cycles can be identified
+    \State Remaining profile forms the rainflow residue
     \end{algorithmic}
     \end{algorithm}
 
@@ -460,7 +459,7 @@ f_t \Delta e & \text{for } j = n_t + 1 \\
 
 The degradation cost $C_{\text{deg}}(s_t, a_t)$ is incurred only during discharging ($a_t < 0$). Let $W = |a_t|$ be the discharge energy. We allocate this energy to segments in increasing order of depth $j = 1, 2, \ldots, J$:
 
-\begin{algorithm}[H]
+\begin{algorithm}[htb]
 \caption{Degradation Cost Computation}
 \begin{algorithmic}[1]
 \Require Current SoC $s_t$, discharge energy $W$, segment costs $c_j$, segment width $\Delta e$
@@ -543,7 +542,7 @@ for $s_i \leq s \leq s_{i+1}$, where $s_i, s_{i+1} \in G$ are adjacent grid poin
 
 \subsection{Complete DP Algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[htb]
 \caption{Health-Aware Rolling Intrinsic DP}
 \label{alg:dp_health_aware}
 \begin{algorithmic}[1]
