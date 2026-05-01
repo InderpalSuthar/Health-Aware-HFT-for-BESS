@@ -1,10 +1,4 @@
 battery_trading/bitepy
 **/.DS_Store
-paper/*.aux
-paper/*.log
-paper/*.pdf
-paper/*.fls
-paper/*.fdb_latexmk
-paper/*.synctex.gz
-paper/*.out
+paper/
 .vscode/
