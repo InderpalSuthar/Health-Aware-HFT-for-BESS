@@ -1,0 +1,11 @@
+Metric,Value
+Executed orders (bitepy),112.0
+Number of discharges,59.0
+Total internal discharge (MWh),120.28
+Bitepy gross reward (€),2786.15
+Bitepy reward incl. linear deg (€),1600.86
+Bitepy implied total deg cost (€),1185.28
+Discharge-only linear cost (4.0 €/MWh) (€),481.11
+Discharge-only convex cost (paper) (€),493.03
+Convex – Linear gap on discharges (€),11.93
+Convex / Linear ratio on discharges,1.025

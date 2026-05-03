@@ -1,0 +1,5 @@
+period,executed_orders,discharges,total_internal_discharge_MWh,bitepy_gross_eur,bitepy_reward_incl_lin_deg_eur,bitepy_implied_lin_deg_eur,discharge_only_lin_eur,discharge_only_convex_eur,convex_minus_lin_gap_eur,convex_over_lin_ratio
+feb,194,101,215.79,3429.8,1446.56,1983.24,863.17,885.28,22.11,1.026
+apr,294,147,312.81,5657.9,2697.56,2960.34,1251.25,1284.5,33.25,1.027
+jul,356,181,378.12,6402.19,2872.52,3529.67,1512.49,1559.59,47.1,1.031
+oct,271,134,303.68,5907.25,2933.82,2973.43,1214.71,1301.71,87.0,1.072

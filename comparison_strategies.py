@@ -6,8 +6,8 @@ import pandas as pd
 import numpy as np
 import time
 
-# Add current directory to path
-sys.path.insert(0, os.getcwd())
+# Add code directory to path
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'code'))
 
 from MILP import BatteryParams, MarketParams, DegradationModel, RollingIntrinsicBacktest, OrderBookLoader
 from DP import DPRollingIntrinsicBacktest
@@ -23,7 +23,7 @@ def run_comparison():
     degradation = DegradationModel(battery)
     
     # Load Data
-    csv_path = "orderbook_degradation.csv"
+    csv_path = "code/strategy_comparison_data/orderbook_feb_01_14.csv"
     if not os.path.exists(csv_path):
         print(f"Error: {csv_path} not found.")
         sys.exit(1)
