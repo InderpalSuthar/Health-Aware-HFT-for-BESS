@@ -1,0 +1,5 @@
+month,executed_orders,discharges,total_discharge_MWh,gross_reward,bitepy_implied_deg,discharge_only_linear,discharge_only_convex,convex_minus_linear,ratio_convex_over_linear,net_profit_linear,net_profit_convex
+feb,192,99,216.1,3393.95,1982.83,864.4,897.75,33.35,1.039,2529.56,2496.21
+apr,294,147,312.81,5657.9,2960.34,1251.25,1284.5,33.25,1.027,4406.65,4373.4
+jul,356,181,378.12,6402.19,3529.67,1512.49,1559.59,47.1,1.031,4889.7,4842.6
+oct,248,121,272.04,5458.38,2658.09,1088.16,1201.37,113.21,1.104,4370.22,4257.0
